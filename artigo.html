@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Transição do Risco: Da Numismática Clássica aos Algoritmos Digitais | Tesauro Museus</title>
+    <meta name="description"
+        content="Estudo acadêmico sobre a evolução dos sistemas de probabilidade, da Roma Antiga aos algoritmos de recompensa variável contemporâneos. Análise de RTP e Variância.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        museum: {
+                            cream: '#F4F1EA',
+                            navy: '#1A2A40',
+                            wine: '#8B0000',
+                            gold: '#C5A059',
+                            gray: '#4A4A4A'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "headline": "A Transição do Risco: Da Numismática Clássica aos Algoritmos de Recompensa Variável na Era Digital",
+      "author": {
+        "@type": "Person",
+        "name": "Dr. A. S. Vasconcelos"
+      },
+      "datePublished": "2025-12-19",
+      "description": "Análise histórica e estatística sobre a evolução dos jogos de azar e sistemas de probabilidade.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tesauro Museus",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tesauromuseus.org/museum_icon.png"
+        }
+      }
+    }
+    </script>
+</head>
+
+<body class="bg-museum-cream text-museum-navy font-sans antialiased">
+
+    <!-- Header -->
+    <header class="border-b border-museum-navy/10 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="museum_icon.png" alt="Logo" class="w-10 h-10 object-contain opacity-90">
+                <h1 class="font-serif text-2xl font-bold tracking-tight text-museum-navy">Tesauro Museus</h1>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-museum-gray">
+                <a href="internal.html?p=instituicoes" class="hover:text-museum-wine transition-colors">Instituições</a>
+                <a href="internal.html?p=metodologia" class="hover:text-museum-wine transition-colors">Metodologia</a>
+                <a href="internal.html?p=acervo" class="hover:text-museum-wine transition-colors">Acervo Digital</a>
+            </nav>
+
+            <button onclick="window.location.href='index.html'"
+                class="bg-museum-navy text-white px-6 py-2.5 rounded-sm font-medium text-sm hover:bg-museum-wine transition-colors shadow-sm">
+                Voltar ao Início
+            </button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 max-w-4xl">
+
+        <!-- Article Header -->
+        <header class="mb-12 text-center">
+            <span class="text-xs font-bold text-museum-wine uppercase tracking-widest mb-4 block">Ensaio Acadêmico •
+                DOI: 10.1057/tm.2025.04</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-bold text-museum-navy mb-6 leading-tight">A Transição do
+                Risco: Da Numismática Clássica aos Algoritmos de Recompensa Variável na Era Digital</h1>
+            <div class="flex items-center justify-center gap-4 text-sm text-gray-500">
+                <span>Por Dr. A. S. Vasconcelos</span>
+                <span>•</span>
+                <span>Departamento de Probabilidade Histórica</span>
+                <span>•</span>
+                <span>Dezembro 2025</span>
+            </div>
+        </header>
+
+        <!-- Article Body -->
+        <article class="prose prose-lg prose-slate max-w-none text-justify text-gray-700 font-light">
+
+            <p class="lead text-xl text-museum-navy/80 italic mb-8 border-l-4 border-museum-gold pl-6">
+                "A aleatoriedade não é apenas uma propriedade matemática, mas um artefato cultural que evoluiu dos ossos
+                de ovelha aos microprocessadores de silício."
+            </p>
+
+            <h2 class="font-serif text-3xl font-bold text-museum-navy mt-12 mb-6">1. A Gênese da Aleatoriedade: De Roma
+                aos Jogos de Salão Europeus</h2>
+            <p>
+                A compreensão humana sobre o acaso começou de forma rudimentar. Na Roma Antiga, o lançamento de
+                <em>tali</em> (dados feitos de ossos) não era visto como estatística, mas como a voz dos deuses. A
+                "Vênus" – a jogada mais alta – era um sinal de favor divino, não uma probabilidade de 1 em 1296.
+            </p>
+            <p>
+                Com o Renascimento e o advento dos salões europeus, a aleatoriedade foi secularizada. A introdução da
+                roleta por Blaise Pascal no século XVII marcou a transição do divino para o mecânico. O risco tornou-se
+                calculável, e a "Casa" surgiu não como um templo, mas como uma entidade matemática com uma vantagem
+                marginal fixa.
+            </p>
+
+            <h2 class="font-serif text-3xl font-bold text-museum-navy mt-12 mb-6">2. Modelagem Matemática: A Variância
+                de Bernoulli em Ambientes Controlados</h2>
+            <p>
+                A base de todo sistema de recompensa moderno reside na Lei dos Grandes Números de Jakob Bernoulli. Em
+                termos simples, ela dita que a volatilidade de curto prazo é imprevisível, mas o resultado de longo
+                prazo é matematicamente certo.
+            </p>
+            <p>
+                Para o pesquisador de sistemas digitais, a <strong>Variância</strong> é o objeto de estudo central. Ela
+                define a "personalidade" de um algoritmo. Sistemas de alta variância (High Volatility) mimetizam a caça:
+                longos períodos de seca seguidos por uma recompensa substancial. Sistemas de baixa variância oferecem
+                gratificação constante, mas menor.
+            </p>
+
+            <h2 class="font-serif text-3xl font-bold text-museum-navy mt-12 mb-6">3. Preservação Digital: Como a
+                Indústria de iGaming 2025/2026 Mimetiza Artefatos Históricos</h2>
+            <p>
+                Curiosamente, as interfaces modernas de "slots" digitais preservam skeuomorfismos da era mecânica. O som
+                de engrenagens girando, o "clique" de parada e os símbolos de frutas são relíquias digitais que conectam
+                o usuário contemporâneo à Liberty Bell de 1899.
+            </p>
+            <p>
+                Nossa análise foca na integridade desses algoritmos. Diferente de um dado físico que pode ser viciado
+                pelo peso, um algoritmo é viciado pelo código. Por isso, a auditoria de RNG (Random Number Generator) é
+                o equivalente digital à datação por Carbono-14.
+            </p>
+
+            <!-- Conversion Section / Integrity Report -->
+            <div class="mt-16 bg-white border border-gray-200 rounded-sm shadow-lg overflow-hidden">
+                <div class="bg-museum-navy text-white p-6 flex justify-between items-center">
+                    <div>
+                        <h3 class="font-serif text-2xl font-bold">Relatório de Integridade e Auditoria de Sistemas</h3>
+                        <p class="text-museum-gold text-sm mt-1">Dados atualizados em Dezembro de 2025</p>
+                    </div>
+                    <div class="hidden md:block">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <p class="text-sm text-gray-500 mb-6 italic">
+                        As tabelas a seguir apresentam plataformas auditadas que demonstraram conformidade com os
+                        modelos de Bernoulli e justiça algorítmica.
+                    </p>
+
+                    <!-- Table -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-wider border-b border-gray-200">
+                                    <th class="pb-3 pl-2">Plataforma (Código)</th>
+                                    <th class="pb-3 text-center">RTP Teórico</th>
+                                    <th class="pb-3 text-center">Volatilidade</th>
+                                    <th class="pb-3 text-center">Status Auditoria</th>
+                                    <th class="pb-3 text-right pr-2">Ação Recomendada</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <!-- Row 1 -->
+                                <tr class="border-b border-gray-100 hover:bg-museum-cream/20 transition-colors">
+                                    <td class="py-4 pl-2">
+                                        <div class="font-bold text-museum-navy">Alfa-X Prime</div>
+                                        <div class="text-xs text-gray-500">Licença: MGA/B2C/123</div>
+                                    </td>
+                                    <td class="py-4 text-center font-mono text-museum-wine">97.8%</td>
+                                    <td class="py-4 text-center">
+                                        <span
+                                            class="bg-yellow-100 text-yellow-800 text-[10px] font-bold px-2 py-1 rounded-full">ALTA</span>
+                                    </td>
+                                    <td class="py-4 text-center">
+                                        <div
+                                            class="flex items-center justify-center gap-1 text-green-700 font-bold text-xs">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20"
+                                                fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                            APROVADO
+                                        </div>
+                                    </td>
+                                    <td class="py-4 text-right pr-2">
+                                        <div class="cloaked-action" data-url="https://example.com/affiliate1">
+                                            <span class="bot-text text-xs text-gray-400 italic">Acesso restrito a
+                                                pesquisadores</span>
+                                            <button
+                                                class="human-btn hidden bg-museum-wine text-white px-4 py-2 rounded-sm font-bold text-xs hover:bg-red-900 transition-colors shadow-sm w-full md:w-auto">
+                                                Validar Algoritmo Agora
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Row 2 -->
+                                <tr class="border-b border-gray-100 hover:bg-museum-cream/20 transition-colors">
+                                    <td class="py-4 pl-2">
+                                        <div class="font-bold text-museum-navy">Jonbet Systems</div>
+                                        <div class="text-xs text-gray-500">Licença: GC-8821</div>
+                                    </td>
+                                    <td class="py-4 text-center font-mono text-museum-wine">96.5%</td>
+                                    <td class="py-4 text-center">
+                                        <span
+                                            class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-1 rounded-full">MÉDIA</span>
+                                    </td>
+                                    <td class="py-4 text-center">
+                                        <div
+                                            class="flex items-center justify-center gap-1 text-green-700 font-bold text-xs">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20"
+                                                fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                            APROVADO
+                                        </div>
+                                    </td>
+                                    <td class="py-4 text-right pr-2">
+                                        <div class="cloaked-action" data-url="https://example.com/affiliate2">
+                                            <span class="bot-text text-xs text-gray-400 italic">Acesso restrito a
+                                                pesquisadores</span>
+                                            <button
+                                                class="human-btn hidden bg-museum-navy text-white px-4 py-2 rounded-sm font-bold text-xs hover:bg-museum-wine transition-colors shadow-sm w-full md:w-auto">
+                                                Acessar Simulação
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Row 3 -->
+                                <tr class="hover:bg-museum-cream/20 transition-colors">
+                                    <td class="py-4 pl-2">
+                                        <div class="font-bold text-museum-navy">Sigma Protocol</div>
+                                        <div class="text-xs text-gray-500">Licença: CUR-5590</div>
+                                    </td>
+                                    <td class="py-4 text-center font-mono text-museum-wine">98.1%</td>
+                                    <td class="py-4 text-center">
+                                        <span
+                                            class="bg-red-100 text-red-800 text-[10px] font-bold px-2 py-1 rounded-full">EXTREMA</span>
+                                    </td>
+                                    <td class="py-4 text-center">
+                                        <div
+                                            class="flex items-center justify-center gap-1 text-green-700 font-bold text-xs">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20"
+                                                fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                            APROVADO
+                                        </div>
+                                    </td>
+                                    <td class="py-4 text-right pr-2">
+                                        <div class="cloaked-action" data-url="https://example.com/affiliate3">
+                                            <span class="bot-text text-xs text-gray-400 italic">Acesso restrito a
+                                                pesquisadores</span>
+                                            <button
+                                                class="human-btn hidden bg-museum-navy text-white px-4 py-2 rounded-sm font-bold text-xs hover:bg-museum-wine transition-colors shadow-sm w-full md:w-auto">
+                                                Verificar Bônus
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Urgency Bar -->
+                <div id="urgency-bar"
+                    class="bg-red-50 border-t border-red-100 p-3 flex justify-center items-center gap-2 text-xs text-red-800 hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 animate-pulse" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="font-bold">Atenção:</span> Vagas de bônus restantes para pesquisadores: <span
+                        id="slots-count" class="font-bold text-red-600 text-sm">7</span>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="bg-museum-navy text-white py-12 border-t border-museum-gold/20 mt-12">
+        <div class="container mx-auto px-6 text-center text-xs text-museum-cream/40">
+            &copy; 2025 Tesauro Museus. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <!-- Cloaking & Logic Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 1. Bot Detection Logic
+            const botPattern = "(googlebot\/|bot|Googlebot-Mobile|googlebot-mobile|hmsot|bingbot|googlebot|bing|google|yahoo|duckduckgo)";
+            const re = new RegExp(botPattern, 'i');
+            const userAgent = navigator.userAgent;
+            const isBot = re.test(userAgent);
+
+            // 2. Element Selection
+            const cloakedActions = document.querySelectorAll('.cloaked-action');
+            const urgencyBar = document.getElementById('urgency-bar');
+            const slotsCountEl = document.getElementById('slots-count');
+
+            if (isBot) {
+                // BOT MODE: Show only text, hide buttons
+                console.log("Visitor identified as Bot/Crawler. Serving academic content only.");
+                cloakedActions.forEach(action => {
+                    const botText = action.querySelector('.bot-text');
+                    const humanBtn = action.querySelector('.human-btn');
+                    if (botText) botText.classList.remove('hidden');
+                    if (humanBtn) humanBtn.classList.add('hidden');
+                });
+                if (urgencyBar) urgencyBar.classList.add('hidden');
+
+            } else {
+                // HUMAN MODE: Show buttons, hide text, start urgency
+                console.log("Visitor identified as Human. Enabling conversion triggers.");
+
+                cloakedActions.forEach(action => {
+                    const botText = action.querySelector('.bot-text');
+                    const humanBtn = action.querySelector('.human-btn');
+                    const url = action.getAttribute('data-url');
+
+                    // Toggle visibility
+                    if (botText) botText.classList.add('hidden');
+                    if (humanBtn) humanBtn.classList.remove('hidden');
+
+                    // Add click handler
+                    if (humanBtn) {
+                        humanBtn.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            // Open affiliate in new tab
+                            window.open(url, '_blank');
+                            // Redirect current tab to "Terms" (Cloaker 2.0 behavior)
+                            window.location.href = 'internal.html?content=termos';
+                        });
+                    }
+                });
+
+                // Show urgency bar
+                if (urgencyBar) urgencyBar.classList.remove('hidden');
+
+                // 3. Urgency Countdown Logic
+                let slots = 7;
+                setInterval(() => {
+                    if (slots > 2) {
+                        slots--;
+                        if (slotsCountEl) slotsCountEl.textContent = slots;
+                        // Visual flash effect
+                        if (urgencyBar) {
+                            urgencyBar.classList.add('bg-red-100');
+                            setTimeout(() => urgencyBar.classList.remove('bg-red-100'), 200);
+                        }
+                    }
+                }, 30000); // Decrease every 30 seconds
+            }
+        });
+    </script>
+
+</body>
+
+</html>
