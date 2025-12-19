@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/analise-tecnica/:brand",
-      "destination": "/analise-tecnica/analise.html"
+      "destination": "/analise-tecnica/analise"
     }
   ],
   "redirects": [
