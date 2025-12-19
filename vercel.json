@@ -1,0 +1,181 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "destination": "/artigo.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/%3E/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/.GLOSS%C3%81RIO/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/.well-known/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/ads.txt/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/agradecimentos/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/app-ads.txt/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/apresentacao/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/bibliografia/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/busca-te-tesauro/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/busca-tg-tesauro/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/busca/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/cdn-cgi/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/cetro/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/coroa/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/corpo-tecnico/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/css/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/detalhe-/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/detalhe-tesauro-/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/detalhe-tesauro-descricao/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/detalhe-tesauro-ordem-/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/detalhe-tesauro-ordem-alfabetica/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/detalhe-tesauro/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/download/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/favicon.ico/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/ficha-tecnica/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/introducao/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/lista-ordem-alfabetica-tesauro/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/lista-ordem-sistematica-tesauro/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/plano-geral/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/robots.txt/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap.xml/:path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    },
+    {
+      "source": "/index.php/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/(19|20):path*",
+      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
+      "permanent": true
+    }
+  ]
+}
