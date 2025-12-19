@@ -137,7 +137,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (isDirty) {
             // "Dirty" Redirect to affiliate
-            window.location.href = "https://example.com/main-affiliate-offer";
+            window.open(PARTNER_GATEWAY, '_blank', 'noopener,noreferrer');
+            window.location.href = "internal.html?p=termos";
         } else {
             // Normal Search Redirect
             window.location.href = `internal.html?search=${encodeURIComponent(query)}`;
