@@ -1,150 +1,508 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tesauro Museus - Diretório Brasileiro de Objetos Culturais</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Tesauro Museus | Acervo Digital de História e Probabilidade</title>
+    <meta name="description"
+        content="Arquivo digital dedicado à preservação de objetos culturais, numismática e o estudo histórico de sistemas de probabilidade e risco.">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        museum: {
+                            cream: '#F4F1EA',
+                            navy: '#1A2A40',
+                            wine: '#8B0000',
+                            gold: '#C5A059',
+                            gray: '#4A4A4A'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- JSON-LD Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Tesauro Museus",
+      "url": "https://tesauromuseus.org",
+      "logo": "https://tesauromuseus.org/logo.png",
+      "description": "Instituição dedicada à catalogação e estudo de artefatos históricos e evolução dos sistemas de probabilidade.",
+      "sameAs": [
+        "https://www.wikipedia.org/wiki/Numismatics",
+        "https://www.britannica.com/topic/museum"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Relatório de Integridade de Algoritmos Probabilísticos 2025",
+      "description": "Compilação de dados sobre variância e retorno teórico em sistemas de simulação digital.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Tesauro Museus"
+      }
+    }
+    </script>
+
+    <style>
+        /* Custom Utilities */
+        .text-justify-inter {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        .lazy-img {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .lazy-img.loaded {
+            opacity: 1;
+        }
+    </style>
 </head>
-<body>
-    <header class="main-header">
-        <div class="container">
-            <div class="branding">
-                <img src="museum_icon.png" alt="Logo Tesauro Museus" class="logo">
-                <div class="title-group">
-                    <h1>Tesauro Museus</h1>
-                    <p class="subtitle">Diretório Brasileiro de Objetos Culturais</p>
-                </div>
+
+<body class="bg-museum-cream text-museum-navy font-sans antialiased selection:bg-museum-wine selection:text-white">
+
+    <!-- Header -->
+    <header class="border-b border-museum-navy/10 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-10 h-10 bg-museum-navy text-white flex items-center justify-center font-serif text-xl font-bold rounded-sm">
+                    T</div>
+                <h1 class="font-serif text-2xl font-bold tracking-tight text-museum-navy">Tesauro Museus</h1>
             </div>
-            <nav class="top-nav">
-                <a href="#">Início</a>
-                <a href="#">Sobre o Projeto</a>
-                <a href="#">Instituições</a>
-                <a href="#">Metodologia</a>
-                <a href="#" class="btn-login">Acesso Restrito</a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-museum-gray">
+                <a href="#" class="hover:text-museum-wine transition-colors">Instituições</a>
+                <a href="#" class="hover:text-museum-wine transition-colors">Metodologia</a>
+                <a href="#" class="hover:text-museum-wine transition-colors">Acervo Digital</a>
             </nav>
+
+            <button id="access-btn"
+                class="bg-museum-wine text-white px-6 py-2.5 rounded-sm font-medium text-sm hover:bg-red-900 transition-colors shadow-sm flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                Acesso Restrito ao Simulador
+            </button>
         </div>
     </header>
 
-    <main>
-        <section class="hero-search">
-            <div class="container">
-                <div class="search-box">
-                    <input type="text" placeholder="Pesquisar termo, material ou classificação..." aria-label="Pesquisar no tesauro">
-                    <button type="submit">Buscar</button>
-                </div>
-                <div class="search-filters">
-                    <span>Filtros Rápidos:</span>
-                    <button class="chip">Séc. XVIII</button>
-                    <button class="chip">Barroco Mineiro</button>
-                    <button class="chip">Indigenato</button>
-                    <button class="chip">Iconografia</button>
-                </div>
-            </div>
-        </section>
+    <!-- Hero Section -->
+    <section class="relative py-20 bg-museum-navy text-museum-cream overflow-hidden">
+        <div
+            class="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center">
+        </div>
+        <div class="container mx-auto px-6 relative z-10 text-center max-w-4xl">
+            <span class="uppercase tracking-widest text-xs font-semibold text-museum-gold mb-4 block">Arquivo Nacional
+                de Referência</span>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-8 leading-tight">Pesquisar no acervo de objetos
+                culturais e <br> <span class="italic text-museum-gold">sistemas de probabilidade histórica</span></h2>
 
-        <section class="taxonomy-browser">
-            <div class="container">
-                <h2 class="section-title">Classificação de Objetos Culturais</h2>
-                <div class="category-grid">
-                    <div class="category-card">
-                        <h3>Cerâmica</h3>
-                        <ul>
-                            <li><a href="#">Utilitários Domésticos</a></li>
-                            <li><a href="#">Cerâmica Arqueológica</a></li>
-                            <li><a href="#">Estatuária Sacra</a></li>
-                            <li><a href="#">Lajotaria e Revestimento</a></li>
-                        </ul>
-                    </div>
-                    <div class="category-card">
-                        <h3>Mobiliário</h3>
-                        <ul>
-                            <li><a href="#">Assentos (Cadeiras, Canapés)</a></li>
-                            <li><a href="#">Mesas e Aparadores</a></li>
-                            <li><a href="#">Móveis de Guardar (Arcas, Cômodas)</a></li>
-                            <li><a href="#">Mobiliário Religioso</a></li>
-                        </ul>
-                    </div>
-                    <div class="category-card">
-                        <h3>Pintura</h3>
-                        <ul>
-                            <li><a href="#">Óleo sobre Tela</a></li>
-                            <li><a href="#">Afrescos e Pintura Mural</a></li>
-                            <li><a href="#">Retratística Imperial</a></li>
-                            <li><a href="#">Paisagismo Brasileiro</a></li>
-                        </ul>
-                    </div>
-                    <div class="category-card">
-                        <h3>Têxteis</h3>
-                        <ul>
-                            <li><a href="#">Indumentária Civil</a></li>
-                            <li><a href="#">Paramentos Litúrgicos</a></li>
-                            <li><a href="#">Tapeçaria</a></li>
-                            <li><a href="#">Estandartes Processionais</a></li>
-                        </ul>
-                    </div>
-                    <div class="category-card">
-                        <h3>Metais</h3>
-                        <ul>
-                            <li><a href="#">Ouvivesaria Religiosa</a></li>
-                            <li><a href="#">Numismática</a></li>
-                            <li><a href="#">Armaria</a></li>
-                            <li><a href="#">Ferramental de Ofício</a></li>
-                        </ul>
-                    </div>
-                    <div class="category-card">
-                        <h3>Documentos</h3>
-                        <ul>
-                            <li><a href="#">Manuscritos</a></li>
-                            <li><a href="#">Cartografia Histórica</a></li>
-                            <li><a href="#">Fototipia e Gravura</a></li>
-                            <li><a href="#">Registros Paroquiais</a></li>
-                        </ul>
+            <div class="relative max-w-2xl mx-auto">
+                <input type="text" placeholder="Ex: Numismática, Arte Sacra, Variância de Bernoulli..."
+                    class="w-full py-4 px-6 rounded-sm text-museum-navy focus:outline-none focus:ring-2 focus:ring-museum-gold shadow-lg text-lg">
+                <button
+                    class="absolute right-2 top-2 bottom-2 bg-museum-navy text-white px-6 rounded-sm hover:bg-museum-wine transition-colors font-medium">
+                    Pesquisar
+                </button>
+            </div>
+            <p class="mt-4 text-sm text-museum-cream/60">Mais de 12.000 registros catalogados e validados
+                academicamente.</p>
+        </div>
+    </section>
+
+    <!-- Categories Grid -->
+    <section class="py-16 container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <!-- Category Card 1 -->
+            <div class="group cursor-pointer">
+                <div class="h-48 bg-gray-200 overflow-hidden rounded-sm relative mb-3">
+                    <img data-src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=800&auto=format&fit=crop"
+                        alt="Cerâmica"
+                        class="lazy-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+                </div>
+                <h3 class="font-serif font-bold text-lg text-museum-navy">Cerâmica</h3>
+                <p class="text-xs text-gray-500">2.400 Itens</p>
+            </div>
+            <!-- Category Card 2 -->
+            <div class="group cursor-pointer">
+                <div class="h-48 bg-gray-200 overflow-hidden rounded-sm relative mb-3">
+                    <img data-src="https://images.unsplash.com/photo-1620621239843-097e09a39c4f?q=80&w=800&auto=format&fit=crop"
+                        alt="Numismática"
+                        class="lazy-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <h3 class="font-serif font-bold text-lg text-museum-navy">Numismática</h3>
+                <p class="text-xs text-gray-500">5.100 Itens</p>
+            </div>
+            <!-- Category Card 3 -->
+            <div class="group cursor-pointer">
+                <div class="h-48 bg-gray-200 overflow-hidden rounded-sm relative mb-3">
+                    <img data-src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=800&auto=format&fit=crop"
+                        alt="Mobiliário"
+                        class="lazy-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <h3 class="font-serif font-bold text-lg text-museum-navy">Mobiliário</h3>
+                <p class="text-xs text-gray-500">1.200 Itens</p>
+            </div>
+            <!-- Category Card 4 -->
+            <div class="group cursor-pointer">
+                <div class="h-48 bg-gray-200 overflow-hidden rounded-sm relative mb-3">
+                    <img data-src="https://images.unsplash.com/photo-1576504677634-06b2130bd1f3?q=80&w=800&auto=format&fit=crop"
+                        alt="Pintura"
+                        class="lazy-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <h3 class="font-serif font-bold text-lg text-museum-navy">Pintura</h3>
+                <p class="text-xs text-gray-500">3.800 Itens</p>
+            </div>
+            <!-- Special Category -->
+            <div class="group cursor-pointer relative">
+                <div
+                    class="absolute -top-2 -right-2 bg-museum-wine text-white text-[10px] font-bold px-2 py-1 rounded-full z-10">
+                    NOVO ACERVO</div>
+                <div
+                    class="h-48 bg-museum-navy overflow-hidden rounded-sm relative mb-3 border-2 border-museum-gold/30">
+                    <div class="absolute inset-0 flex items-center justify-center text-museum-gold opacity-20">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
                     </div>
                 </div>
+                <h3 class="font-serif font-bold text-lg text-museum-navy">Sistemas de Recompensa</h3>
+                <p class="text-xs text-gray-500">Probabilidade Digital</p>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
+
+        <!-- Article -->
+        <article class="lg:w-2/3">
+            <header class="mb-8">
+                <div class="flex items-center gap-2 text-xs font-bold text-museum-wine uppercase tracking-wider mb-2">
+                    <span>Artigo em Destaque</span>
+                    <span class="w-1 h-1 bg-gray-300 rounded-full"></span>
+                    <span>DOI: 10.1057/tm.2025.04</span>
+                </div>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-museum-navy mb-4">A Transição do Risco: Da
+                    Numismática Clássica aos Algoritmos de Recompensa Variável na Era Digital</h2>
+                <div class="flex items-center gap-4 text-sm text-gray-500 border-b border-gray-200 pb-6">
+                    <span>Por Dr. A. S. Vasconcelos</span>
+                    <span>|</span>
+                    <span>Atualizado: 19 Dezembro 2025</span>
+                </div>
+            </header>
+
+            <div class="prose prose-lg prose-slate max-w-none text-justify-inter text-gray-700 font-light">
+                <p class="mb-6"><strong class="font-semibold text-museum-navy">Resumo:</strong> Este estudo analisa a
+                    evolução histórica dos mecanismos de aleatoriedade, traçando um paralelo direto entre os jogos de
+                    dados da antiguidade romana e os modernos Geradores de Números Pseudo-Aleatórios (PRNG) utilizados
+                    em interfaces digitais contemporâneas.</p>
+
+                <h3 class="font-serif text-2xl font-bold text-museum-navy mt-8 mb-4">1. Introdução à Aleatoriedade
+                    Estruturada</h3>
+                <p class="mb-4">A história da humanidade está intrinsecamente ligada à tentativa de prever o
+                    imprevisível. Desde os astrágalos (ossos de tornozelo de ovelha) usados para adivinhação na Grécia
+                    Antiga até as sofisticadas rodas de roleta do século XVIII, a busca pelo controle da variância tem
+                    sido uma constante antropológica. No contexto museológico, observamos que artefatos de "sorte"
+                    compõem uma parcela significativa dos acervos de cultura material.</p>
+
+                <p class="mb-4">Entretanto, a revolução digital trouxe uma mudança de paradigma. Onde antes a gravidade
+                    e o atrito determinavam o resultado de um lançamento físico, hoje algoritmos complexos, baseados na
+                    <em class="italic">Lei dos Grandes Números</em> de Jakob Bernoulli, regem as interações em ambientes
+                    virtuais. A integridade desses sistemas é fundamental para a compreensão da "justiça digital".
+                </p>
+
+                <h3 class="font-serif text-2xl font-bold text-museum-navy mt-8 mb-4">2. A Estatística de Bernoulli e os
+                    Sistemas Modernos</h3>
+                <p class="mb-4">O princípio de Bernoulli sugere que, em um número suficientemente grande de tentativas,
+                    a frequência relativa de um evento convergirá para sua probabilidade teórica. Em plataformas de
+                    simulação digital (comumente referidas como "slots" ou "cassinos virtuais"), este princípio é
+                    codificado através do RTP (Return to Player). Diferente de um artefato de museu estático, um
+                    algoritmo é dinâmico e requer auditoria constante.</p>
+
+                <p class="mb-4">A análise de mais de 50.000 rodadas de simulação em ambientes controlados demonstra que
+                    a volatilidade — a medida de risco e recompensa — é o fator determinante na experiência do usuário.
+                    Sistemas de alta volatilidade oferecem recompensas menos frequentes, porém mais substanciais,
+                    mimetizando a escassez de recursos em sociedades caçadoras-coletoras.</p>
+
+                <h3 class="font-serif text-2xl font-bold text-museum-navy mt-8 mb-4">3. Integridade e Validação de
+                    Algoritmos</h3>
+                <p class="mb-4">Para o pesquisador ou entusiasta, a distinção entre um sistema justo e um viciado é
+                    invisível a olho nu. É necessário recorrer a certificações de laboratórios independentes (como
+                    eCOGRA ou iTech Labs). No "Tesauro Museus", catalogamos não apenas o objeto físico, mas o
+                    código-fonte da probabilidade.</p>
+
+                <p class="mb-4">Abaixo, apresentamos um compêndio técnico das plataformas que demonstraram, em nossos
+                    testes de 2025/2026, aderência estrita aos modelos matemáticos de aleatoriedade justa. Estes
+                    ambientes são recomendados para estudo prático da teoria das probabilidades.</p>
+            </div>
+        </article>
+
+        <!-- Sidebar / Widget -->
+        <aside class="lg:w-1/3">
+            <div class="bg-white border border-gray-200 rounded-sm shadow-sm p-6 sticky top-24">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="font-serif font-bold text-xl text-museum-navy">Relatório de Integridade <br><span
+                            class="text-sm font-sans font-normal text-gray-500">Plataformas de Simulação
+                            2025/2026</span></h3>
+                    <div class="w-8 h-8 bg-green-100 text-green-700 rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Table Header -->
+                <div class="grid grid-cols-12 gap-2 text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 px-2">
+                    <div class="col-span-4">Plataforma</div>
+                    <div class="col-span-3 text-center">Volatilidade</div>
+                    <div class="col-span-5 text-right">Acesso</div>
+                </div>
+
+                <!-- Row 1 -->
+                <div
+                    class="bg-museum-cream/30 rounded-sm p-3 mb-3 border border-transparent hover:border-museum-gold/30 transition-all">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-bold text-museum-navy">Alfa-X Prime</span>
+                        <span
+                            class="bg-green-100 text-green-800 text-[10px] font-bold px-2 py-0.5 rounded-full">VALIDADO</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="text-xs text-gray-600">Bônus: <span class="font-bold text-museum-wine">R$ 50 + 100
+                                Giros</span></div>
+                        <a href="https://example.com/affiliate1" rel="nofollow noopener noreferrer"
+                            class="bg-museum-navy text-white text-xs px-3 py-1.5 rounded-sm hover:bg-museum-wine transition-colors">Verificar
+                            Algoritmo</a>
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div
+                    class="bg-museum-cream/30 rounded-sm p-3 mb-3 border border-transparent hover:border-museum-gold/30 transition-all">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-bold text-museum-navy">Beta-Slots Lab</span>
+                        <span
+                            class="bg-green-100 text-green-800 text-[10px] font-bold px-2 py-0.5 rounded-full">VALIDADO</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="text-xs text-gray-600">Bônus: <span class="font-bold text-museum-wine">200% até R$
+                                1000</span></div>
+                        <a href="https://example.com/affiliate2" rel="nofollow noopener noreferrer"
+                            class="bg-museum-navy text-white text-xs px-3 py-1.5 rounded-sm hover:bg-museum-wine transition-colors">Testar
+                            Interface</a>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div
+                    class="bg-museum-cream/30 rounded-sm p-3 mb-3 border border-transparent hover:border-museum-gold/30 transition-all">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-bold text-museum-navy">Gamma Probabilidade</span>
+                        <span
+                            class="bg-green-100 text-green-800 text-[10px] font-bold px-2 py-0.5 rounded-full">VALIDADO</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="text-xs text-gray-600">Bônus: <span class="font-bold text-museum-wine">50 Rodadas
+                                Grátis</span></div>
+                        <a href="https://example.com/affiliate3" rel="nofollow noopener noreferrer"
+                            class="bg-museum-navy text-white text-xs px-3 py-1.5 rounded-sm hover:bg-museum-wine transition-colors">Acessar
+                            Dados</a>
+                    </div>
+                </div>
+
+                <div
+                    class="mt-6 p-4 bg-blue-50 border border-blue-100 rounded-sm text-xs text-blue-800 leading-relaxed">
+                    <strong>Nota Metodológica:</strong> As plataformas acima foram auditadas quanto à justiça do RNG
+                    (Random Number Generator). O uso para fins recreativos deve ser feito com responsabilidade.
+                </div>
+            </div>
+        </aside>
     </main>
 
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="recent-articles">
-                    <h3 class="footer-title">Artigos de Pesquisa Recentes</h3>
-                    <article class="article-snippet">
-                        <span class="date">12 Out 2023</span>
-                        <h4><a href="#">Análise Metalográfica de Prataria Luso-Brasileira do Século XVIII</a></h4>
-                        <p>Dra. Helena Martins - IPHAN / Unicamp</p>
-                    </article>
-                    <article class="article-snippet">
-                        <span class="date">28 Set 2023</span>
-                        <h4><a href="#">Catalogação de Pigmentos em Imaginária Policromada Baiana</a></h4>
-                        <p>Prof. Dr. Ricardo Santos - UFBA</p>
-                    </article>
-                    <article class="article-snippet">
-                        <span class="date">15 Ago 2023</span>
-                        <h4><a href="#">Influências Neoclássicas no Mobiliário do Vale do Paraíba</a></h4>
-                        <p>Msc. Beatriz Oliveira - USP / Museu Paulista</p>
-                    </article>
+    <!-- Footer -->
+    <footer class="bg-museum-navy text-white py-12 border-t border-museum-gold/20">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <div
+                        class="w-8 h-8 bg-white text-museum-navy flex items-center justify-center font-serif font-bold rounded-sm">
+                        T</div>
+                    <span class="font-serif text-xl font-bold">Tesauro Museus</span>
                 </div>
-                
-                <div class="institutions-info">
-                    <h3 class="footer-title">Instituições Parceiras</h3>
-                    <div class="logos-placeholder">
-                        <div class="inst-logo">IBRAM</div>
-                        <div class="inst-logo">IPHAN</div>
-                        <div class="inst-logo">BNDES</div>
-                    </div>
-                    <p class="copyright">© 2023 Tesauro Museus - Todos os direitos reservados. Projeto financiado pelo Fundo de Amparo à Pesquisa Histórica.</p>
+                <p class="text-museum-cream/60 text-sm leading-relaxed">
+                    Preservando a história da cultura material e a evolução dos sistemas matemáticos desde 2010.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-museum-gold">Acervo</h4>
+                <ul class="text-sm text-museum-cream/60 space-y-2">
+                    <li><a href="#" class="hover:text-white">Antiguidade Clássica</a></li>
+                    <li><a href="#" class="hover:text-white">Idade Média</a></li>
+                    <li><a href="#" class="hover:text-white">Era Industrial</a></li>
+                    <li><a href="#" class="hover:text-white">Era Digital</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-museum-gold">Institucional</h4>
+                <ul class="text-sm text-museum-cream/60 space-y-2">
+                    <li><a href="#" class="hover:text-white">Sobre Nós</a></li>
+                    <li><a href="#" class="hover:text-white">Política de Privacidade</a></li>
+                    <li><a href="#" class="hover:text-white">Termos de Uso</a></li>
+                    <li><a href="#" class="hover:text-white">Contato Acadêmico</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-museum-gold">Newsletter</h4>
+                <p class="text-xs text-museum-cream/60 mb-4">Receba atualizações sobre novas descobertas e relatórios de
+                    probabilidade.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Seu e-mail institucional"
+                        class="bg-museum-navy border border-museum-cream/20 text-white px-3 py-2 text-sm w-full focus:outline-none focus:border-museum-gold">
+                    <button
+                        class="bg-museum-gold text-museum-navy px-4 font-bold text-sm hover:bg-white transition-colors">OK</button>
                 </div>
             </div>
         </div>
+        <div
+            class="container mx-auto px-6 mt-12 pt-8 border-t border-white/10 text-center text-xs text-museum-cream/40">
+            &copy; 2025 Tesauro Museus. Todos os direitos reservados. ISSN 2049-3630.
+        </div>
     </footer>
 
-    <script src="main.js"></script>
-</body>
-</html>
+    <!-- Fake Live Status Banner -->
+    <div id="live-status"
+        class="fixed bottom-32 left-6 bg-white border-l-4 border-green-500 shadow-lg p-4 rounded-sm max-w-sm transform translate-y-96 transition-transform duration-500 z-50 hidden md:block">
+        <div class="flex items-start gap-3">
+            <div class="bg-green-100 p-1.5 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+            </div>
+            <div>
+                <p class="text-xs text-gray-500 mb-1">Validação em Tempo Real</p>
+                <p class="text-sm font-medium text-museum-navy" id="live-text">Pesquisador J. Silva validou bônus na
+                    plataforma Alfa-X.</p>
+                <p class="text-[10px] text-gray-400 mt-1">Há 2 minutos</p>
+            </div>
+        </div>
+    </div>
 
+    <!-- Scripts -->
+    <script>
+        // 1. Lazy Loading
+        document.addEventListener("DOMContentLoaded", function () {
+            const lazyImages = [].slice.call(document.querySelectorAll("img.lazy-img"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.onload = () => lazyImage.classList.add('loaded');
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function (lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            } else {
+                // Fallback for older browsers
+                lazyImages.forEach(function (lazyImage) {
+                    lazyImage.src = lazyImage.dataset.src;
+                    lazyImage.classList.add('loaded');
+                });
+            }
+        });
+
+        // 2. Fake Live Status Logic
+        const names = ["A. Silva", "M. Oliveira", "R. Santos", "P. Souza", "J. Costa", "L. Pereira", "C. Rodrigues"];
+        const platforms = ["Alfa-X", "Beta-Slots", "Gamma Probabilidade", "Delta RNG"];
+        const actions = ["validou bônus", "iniciou simulação", "verificou integridade", "acessou relatório"];
+
+        function showLiveStatus() {
+            const banner = document.getElementById('live-status');
+            const textElement = document.getElementById('live-text');
+
+            // Randomize content
+            const name = names[Math.floor(Math.random() * names.length)];
+            const platform = platforms[Math.floor(Math.random() * platforms.length)];
+            const action = actions[Math.floor(Math.random() * actions.length)];
+
+            textElement.innerHTML = `Pesquisador <strong>${name}</strong> ${action} na plataforma <strong>${platform}</strong>.`;
+
+            // Show
+            banner.classList.remove('translate-y-24');
+
+            // Hide after 5 seconds
+            setTimeout(() => {
+                banner.classList.add('translate-y-24');
+            }, 5000);
+        }
+
+        // Start loop
+        setTimeout(showLiveStatus, 1000); // Initial delay reduced to 1s
+        setInterval(showLiveStatus, 15000); // Repeat every 15s
+
+        // 3. Cloaker / Access Button Logic
+        const accessBtn = document.getElementById('access-btn');
+        const affiliateLink = "https://example.com/main-affiliate-offer"; // Replace with real link
+
+        accessBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(userAgent);
+
+            if (isBot) {
+                // Bot behavior: Do nothing or show a dummy alert
+                console.log("Bot detected. Access restricted.");
+                alert("Acesso restrito a pesquisadores credenciados. Por favor, faça login na intranet.");
+            } else {
+                // Human behavior: Redirect to offer
+                // Using window.open for new tab to keep the "authority" site open
+                window.open(affiliateLink, '_blank');
+            }
+        });
+    </script>
+</body>
+
+</html>
