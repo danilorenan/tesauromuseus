@@ -1,5 +1,11 @@
 {
   "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/analise-tecnica/:brand",
+      "destination": "/analise-tecnica/analise.html"
+    }
+  ],
   "redirects": [
     {
       "source": "/%3E/:path*",
