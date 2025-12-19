@@ -1,11 +1,11 @@
-document.addEventListener("DOMContentLoaded", function() {
-    
+document.addEventListener("DOMContentLoaded", function () {
+
     // --- 1. Lazy Loading ---
     const lazyImages = [].slice.call(document.querySelectorAll("img.lazy-img"));
-    
+
     if ("IntersectionObserver" in window) {
-        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(function(entry) {
+        let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
                     let lazyImage = entry.target;
                     lazyImage.src = lazyImage.dataset.src;
@@ -15,12 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
-        lazyImages.forEach(function(lazyImage) {
+        lazyImages.forEach(function (lazyImage) {
             lazyImageObserver.observe(lazyImage);
         });
     } else {
         // Fallback
-        lazyImages.forEach(function(lazyImage) {
+        lazyImages.forEach(function (lazyImage) {
             lazyImage.src = lazyImage.dataset.src;
             lazyImage.classList.add('loaded');
         });
@@ -41,14 +41,14 @@ document.addEventListener("DOMContentLoaded", function() {
             const city = cities[Math.floor(Math.random() * cities.length)];
             const platform = platforms[Math.floor(Math.random() * platforms.length)];
             const action = actions[Math.floor(Math.random() * actions.length)];
-            
-            if(textElement) {
+
+            if (textElement) {
                 textElement.innerHTML = `Pesquisador <strong>${name}</strong> de <span class="text-xs text-gray-400">${city}</span> ${action} na plataforma <strong>${platform}</strong>.`;
             }
-            
+
             // Show
             banner.classList.remove('translate-y-96');
-            
+
             // Hide after 5 seconds
             setTimeout(() => {
                 banner.classList.add('translate-y-96');
@@ -56,22 +56,22 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Start loop
-        setTimeout(showLiveStatus, 1000); 
-        setInterval(showLiveStatus, 15000); 
+        setTimeout(showLiveStatus, 1000);
+        setInterval(showLiveStatus, 15000);
     }
 
     // --- 3. Cloaker / Access Button Logic ---
     const accessBtn = document.getElementById('access-btn');
     if (accessBtn) {
-        const affiliateLink = "https://example.com/main-affiliate-offer"; 
-        const termsPage = "internal.html?p=termos"; 
+        const affiliateLink = "https://example.com/main-affiliate-offer";
+        const termsPage = "internal.html?p=termos";
 
-        accessBtn.addEventListener('click', function(e) {
+        accessBtn.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             const userAgent = navigator.userAgent.toLowerCase();
             const isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(userAgent);
-            
+
             if (isBot) {
                 console.log("Bot detected. Access restricted.");
                 alert("Acesso restrito a pesquisadores credenciados. Por favor, faça login na intranet.");
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (isDirty) {
             // "Dirty" Redirect to affiliate
-            window.location.href = "https://example.com/main-affiliate-offer"; 
+            window.location.href = "https://example.com/main-affiliate-offer";
         } else {
             // Normal Search Redirect
             window.location.href = `internal.html?search=${encodeURIComponent(query)}`;
@@ -112,9 +112,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (searchBtn && searchInput) {
         searchBtn.addEventListener('click', performSearch);
-        searchInput.addEventListener('keypress', function(e) {
+        searchInput.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 performSearch();
+            }
+        });
+    }
+
+    // --- 6. Newsletter Logic ---
+    const newsletterBtn = document.getElementById('newsletter-btn');
+    if (newsletterBtn) {
+        newsletterBtn.addEventListener('click', function () {
+            const emailInput = document.getElementById('newsletter-email');
+            if (emailInput && emailInput.value.includes('@')) {
+                alert("E-mail registrado no banco de dados do Tesauro. Você receberá nossos relatórios de probabilidade em breve.");
+                emailInput.value = "";
+            } else {
+                alert("Por favor, insira um e-mail institucional válido.");
             }
         });
     }

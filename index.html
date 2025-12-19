@@ -361,19 +361,21 @@
             <div>
                 <h4 class="font-bold mb-4 text-museum-gold">Acervo</h4>
                 <ul class="text-sm text-museum-cream/60 space-y-2">
-                    <li><a href="#" class="hover:text-white">Antiguidade Clássica</a></li>
-                    <li><a href="#" class="hover:text-white">Idade Média</a></li>
-                    <li><a href="#" class="hover:text-white">Era Industrial</a></li>
-                    <li><a href="#" class="hover:text-white">Era Digital</a></li>
+                    <li><a href="internal.html?content=antiguidade" class="hover:text-white">Antiguidade Clássica</a>
+                    </li>
+                    <li><a href="internal.html?content=medieval" class="hover:text-white">Idade Média</a></li>
+                    <li><a href="internal.html?content=industrial" class="hover:text-white">Era Industrial</a></li>
+                    <li><a href="internal.html?content=digital" class="hover:text-white">Era Digital</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="font-bold mb-4 text-museum-gold">Institucional</h4>
                 <ul class="text-sm text-museum-cream/60 space-y-2">
-                    <li><a href="#" class="hover:text-white">Sobre Nós</a></li>
-                    <li><a href="#" class="hover:text-white">Política de Privacidade</a></li>
-                    <li><a href="#" class="hover:text-white">Termos de Uso</a></li>
-                    <li><a href="#" class="hover:text-white">Contato Acadêmico</a></li>
+                    <li><a href="internal.html?p=instituicoes" class="hover:text-white">Sobre Nós</a></li>
+                    <li><a href="internal.html?content=privacidade" class="hover:text-white">Política de Privacidade</a>
+                    </li>
+                    <li><a href="internal.html?content=termos" class="hover:text-white">Termos de Uso</a></li>
+                    <li><a href="internal.html?p=instituicoes" class="hover:text-white">Contato Acadêmico</a></li>
                 </ul>
             </div>
             <div>
@@ -381,9 +383,9 @@
                 <p class="text-xs text-museum-cream/60 mb-4">Receba atualizações sobre novas descobertas e relatórios de
                     probabilidade.</p>
                 <div class="flex">
-                    <input type="email" placeholder="Seu e-mail institucional"
+                    <input type="email" id="newsletter-email" placeholder="Seu e-mail institucional"
                         class="bg-museum-navy border border-museum-cream/20 text-white px-3 py-2 text-sm w-full focus:outline-none focus:border-museum-gold">
-                    <button
+                    <button id="newsletter-btn"
                         class="bg-museum-gold text-museum-navy px-4 font-bold text-sm hover:bg-white transition-colors">OK</button>
                 </div>
             </div>

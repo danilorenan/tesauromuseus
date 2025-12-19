@@ -84,11 +84,76 @@
             const params = new URLSearchParams(window.location.search);
             const p = params.get('p');
             const search = params.get('search');
+            const contentParam = params.get('content');
 
             const titleEl = document.getElementById('page-title');
             const contentEl = document.getElementById('page-content');
 
-            if (search) {
+            // Footer & Legal Content Database
+            const footerContent = {
+                "termos": {
+                    title: "Termos de Uso e Responsabilidade Acadêmica",
+                    text: `
+                        <h3 class="font-serif text-xl font-bold mt-6 mb-3">1. Natureza do Site</h3>
+                        <p>O <strong>Tesauro Museus</strong> é um arquivo digital estritamente acadêmico, dedicado à preservação histórica e ao estudo estatístico de artefatos culturais e sistemas matemáticos. Todo o conteúdo aqui disposto tem fins educacionais e de catalogação.</p>
+                        
+                        <h3 class="font-serif text-xl font-bold mt-6 mb-3">2. Isenção de Responsabilidade</h3>
+                        <p>As referências a "Sistemas de Recompensa", "Slots", "Cassinos" ou "Jogos de Azar" são feitas sob a ótica da <strong>Teoria das Probabilidades</strong> e da <strong>Antropologia Cultural</strong>. O Tesauro Museus não opera, não intermedeia e não incentiva apostas financeiras.</p>
+                        <p>Não nos responsabilizamos por quaisquer perdas financeiras, danos morais ou consequências legais decorrentes do uso de plataformas de terceiros mencionadas em nossos relatórios de integridade. O usuário reconhece que a interação com tais sistemas é de sua inteira e exclusiva responsabilidade.</p>
+
+                        <h3 class="font-serif text-xl font-bold mt-6 mb-3">3. Restrição de Maioridade</h3>
+                        <p>O acesso às áreas de "Simulação", "Dados Brutos" e "Análise de Algoritmos" é estritamente restrito a indivíduos maiores de <strong>18 anos</strong> (ou a maioridade legal em sua jurisdição). Ao prosseguir, você declara sob as penas da lei possuir a idade mínima exigida.</p>
+
+                        <h3 class="font-serif text-xl font-bold mt-6 mb-3">4. Estudo de Risco e Aleatoriedade</h3>
+                        <p>Todo o conteúdo analítico sobre probabilidade digital baseia-se na <strong>Lei dos Grandes Números</strong> de Jakob Bernoulli. Ressaltamos que resultados passados em simulações de Monte Carlo não garantem retornos futuros. A variância é uma propriedade intrínseca de sistemas estocásticos e não deve ser interpretada como garantia de lucro.</p>
+                    `
+                },
+                "privacidade": {
+                    title: "Política de Privacidade e Proteção de Dados (LGPD)",
+                    text: `
+                        <p>Em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), o Tesauro Museus compromete-se com a transparência no tratamento de dados para fins de pesquisa histórica.</p>
+                        
+                        <h3 class="font-serif text-xl font-bold mt-6 mb-3">1. Coleta de Dados</h3>
+                        <p>Coletamos dados anonimizados de navegação estritamente para "otimização da experiência museológica". Isso inclui métricas de acesso às coleções digitais e padrões de interação com os simuladores de probabilidade.</p>
+
+                        <h3 class="font-serif text-xl font-bold mt-6 mb-3">2. Uso de Cookies</h3>
+                        <p>Utilizamos cookies técnicos essenciais para o funcionamento do acervo digital. Não realizamos venda de dados a terceiros. Seus dados de e-mail, caso fornecidos na newsletter, são utilizados exclusivamente para o envio de relatórios acadêmicos.</p>
+                    `
+                },
+                "antiguidade": {
+                    title: "Antiguidade Clássica: A Origem do Acaso",
+                    text: `
+                        <p>Na Grécia e Roma antigas, o acaso não era visto como uma questão matemática, mas como a vontade dos deuses. O lançamento de astrágalos (ossos de tornozelo de ovelha) era uma prática comum tanto em rituais divinatórios quanto em jogos de entretenimento nas tavernas de Pompéia.</p>
+                        <p>Nossa coleção inclui réplicas digitais de dados romanos viciados, demonstrando que a tentativa de manipular a sorte é tão antiga quanto a própria civilização. O estudo desses artefatos revela a profunda conexão humana com o risco e a recompensa.</p>
+                    `
+                },
+                "medieval": {
+                    title: "Idade Média: A Sorte sob a Ótica Teológica",
+                    text: `
+                        <p>Durante o período medieval, os jogos de azar foram frequentemente condenados pela Igreja como "ferramentas do vício". No entanto, a nobreza europeia mantinha salões privados onde jogos de cartas e dados floresciam, muitas vezes decidindo o destino de terras e títulos.</p>
+                        <p>O acervo medieval do Tesauro foca na transição dos jogos de pura sorte para os jogos de estratégia, e como a matemática incipiente começou a ser usada para tentar decifrar os padrões divinos por trás do aleatório.</p>
+                    `
+                },
+                "industrial": {
+                    title: "Era Industrial: A Mecanização do Azar",
+                    text: `
+                        <p>Com a Revolução Industrial, surgiram as primeiras máquinas de aposta mecânicas. O nascimento do cassino moderno em locais como Monte Carlo e Baden-Baden transformou o jogo em uma indústria formalizada, com regras padronizadas e "vantagem da casa" matematicamente calculada.</p>
+                        <p>Nesta seção, analisamos a engenharia por trás das primeiras Liberty Bells e como a mecânica de precisão foi usada para garantir a aleatoriedade (ou a falta dela) nas primeiras slots machines físicas.</p>
+                    `
+                },
+                "digital": {
+                    title: "Era Digital: Algoritmos e RNG",
+                    text: `
+                        <p>A partir de 2025, a fronteira final da probabilidade reside no código. Os Geradores de Números Pseudo-Aleatórios (RNG) substituíram as engrenagens físicas. A confiança mudou da gravidade para a criptografia.</p>
+                        <p>O Tesauro Museus dedica sua maior seção à análise desses algoritmos. Estudamos como a variância é programada e como a experiência do usuário é moldada por loops de feedback instantâneo, criando uma nova forma de interação cultural com o risco.</p>
+                    `
+                }
+            };
+
+            if (contentParam && footerContent[contentParam]) {
+                titleEl.textContent = footerContent[contentParam].title;
+                contentEl.innerHTML = footerContent[contentParam].text;
+            } else if (search) {
                 titleEl.textContent = `Resultados da busca: "${search}"`;
                 contentEl.innerHTML = `
                     <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
@@ -112,24 +177,26 @@
             } else if (p === 'instituicoes') {
                 titleEl.textContent = "Instituições Parceiras";
                 contentEl.innerHTML = `
-                    <p>O Tesauro Museus colabora com diversas entidades para a preservação da história e da matemática aplicada:</p>
-                    <ul>
-                        <li>Instituto Nacional de Numismática</li>
-                        <li>Centro de Estudos de Probabilidade Aplicada</li>
-                        <li>Associação de Preservação Digital</li>
+                    <p class="text-lg text-gray-600 mb-6">O Tesauro Museus é uma iniciativa independente e colabora com grupos de estudo privados para a análise da evolução dos sistemas digitais.</p>
+                    
+                    <h3 class="font-serif text-xl font-bold mt-6 mb-3">Rede de Colaboração</h3>
+                    <ul class="list-disc pl-5 space-y-2 mb-8">
+                        <li><strong>Instituto Veritas de Numismática</strong> - Análise de autenticidade material.</li>
+                        <li><strong>Laboratório Sigma de Probabilidade Aplicada</strong> - Auditoria de algoritmos estocásticos.</li>
+                        <li><strong>Fundação Arquivo Digital (Privada)</strong> - Preservação de código-fonte histórico.</li>
+                        <li><strong>Consórcio Internacional de Variância</strong> - Estudos sobre risco e aleatoriedade.</li>
                     </ul>
+
+                    <div class="mt-12 pt-6 border-t border-gray-200">
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wide">Disclaimer Legal</p>
+                        <p class="text-xs text-gray-500 mt-1">As instituições citadas são parcerias de intercâmbio de dados técnicos e não possuem vínculo com órgãos da administração pública direta ou indireta.</p>
+                    </div>
                 `;
             } else if (p === 'acervo') {
                 titleEl.textContent = "Sobre o Acervo Digital";
                 contentEl.innerHTML = `
                     <p>Nosso acervo digital é composto por mais de 12.000 registros, divididos entre cultura material (física) e algoritmos de probabilidade (digital).</p>
                     <p>A digitalização permite que pesquisadores de todo o mundo acessem dados que antes estavam restritos a arquivos físicos ou códigos-fonte proprietários.</p>
-                `;
-            } else if (p === 'termos') {
-                titleEl.textContent = "Termos de Uso Acadêmico";
-                contentEl.innerHTML = `
-                    <p>Ao acessar os dados do Tesauro Museus, você concorda em utilizá-los estritamente para fins de pesquisa e análise histórica.</p>
-                    <p>O acesso à área de simulação de probabilidade é restrito a maiores de 18 anos e deve ser feito com responsabilidade.</p>
                 `;
             } else {
                 // Default
