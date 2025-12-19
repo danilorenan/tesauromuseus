@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesauro Museus | Documentação Interna</title>
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        museum: {
+                            cream: '#F4F1EA',
+                            navy: '#1A2A40',
+                            wine: '#8B0000',
+                            gold: '#C5A059',
+                            gray: '#4A4A4A'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-museum-cream text-museum-navy font-sans antialiased">
+
+    <!-- Header -->
+    <header class="border-b border-museum-navy/10 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="museum_icon.png" alt="Logo" class="w-10 h-10 object-contain opacity-90">
+                <h1 class="font-serif text-2xl font-bold tracking-tight text-museum-navy">Tesauro Museus</h1>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-museum-gray">
+                <a href="internal.html?p=instituicoes" class="hover:text-museum-wine transition-colors">Instituições</a>
+                <a href="internal.html?p=metodologia" class="hover:text-museum-wine transition-colors">Metodologia</a>
+                <a href="internal.html?p=acervo" class="hover:text-museum-wine transition-colors">Acervo Digital</a>
+            </nav>
+
+            <button onclick="window.location.href='index.html'"
+                class="bg-museum-navy text-white px-6 py-2.5 rounded-sm font-medium text-sm hover:bg-museum-wine transition-colors shadow-sm">
+                Voltar ao Início
+            </button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 max-w-4xl">
+        <h1 id="page-title" class="font-serif text-4xl font-bold text-museum-navy mb-8">Documentação Institucional</h1>
+
+        <div id="page-content" class="prose prose-lg prose-slate max-w-none text-justify text-gray-700">
+            <!-- Content injected via JS -->
+            <p>Carregando conteúdo...</p>
+        </div>
+    </main>
+
+    <footer class="bg-museum-navy text-white py-12 border-t border-museum-gold/20 mt-12">
+        <div class="container mx-auto px-6 text-center text-xs text-museum-cream/40">
+            &copy; 2025 Tesauro Museus. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const p = params.get('p');
+            const search = params.get('search');
+
+            const titleEl = document.getElementById('page-title');
+            const contentEl = document.getElementById('page-content');
+
+            if (search) {
+                titleEl.textContent = `Resultados da busca: "${search}"`;
+                contentEl.innerHTML = `
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                        <p class="text-yellow-700"><strong>Atenção:</strong> 0 registros encontrados no banco público.</p>
+                    </div>
+                    <p>Sua pesquisa não retornou resultados no acervo aberto. Dados brutos e estatísticas avançadas podem estar disponíveis apenas na área restrita.</p>
+                    <div class="mt-8">
+                        <a href="index.html" class="bg-museum-wine text-white px-6 py-3 rounded-sm font-bold hover:bg-red-900 transition-colors">
+                            Acessar Área Restrita de Probabilidade
+                        </a>
+                    </div>
+                `;
+            } else if (p === 'metodologia') {
+                titleEl.textContent = "Critérios de Catalogação e Análise de Variância";
+                contentEl.innerHTML = `
+                    <p>Nossa metodologia segue rigorosos padrões internacionais de preservação digital e análise estatística. A catalogação de objetos físicos obedece à norma ISO 21127 (CIDOC CRM), enquanto a análise de sistemas digitais utiliza modelos estocásticos de Bernoulli.</p>
+                    <h3>Análise de Variância (ANOVA)</h3>
+                    <p>Para garantir a integridade dos sistemas de recompensa catalogados, aplicamos testes de variância para confirmar se o Retorno ao Jogador (RTP) declarado corresponde à realidade observada em 1 milhão de simulações de Monte Carlo.</p>
+                    <p>Os dados brutos dessas análises são confidenciais e restritos a pesquisadores credenciados.</p>
+                `;
+            } else if (p === 'instituicoes') {
+                titleEl.textContent = "Instituições Parceiras";
+                contentEl.innerHTML = `
+                    <p>O Tesauro Museus colabora com diversas entidades para a preservação da história e da matemática aplicada:</p>
+                    <ul>
+                        <li>Instituto Nacional de Numismática</li>
+                        <li>Centro de Estudos de Probabilidade Aplicada</li>
+                        <li>Associação de Preservação Digital</li>
+                    </ul>
+                `;
+            } else if (p === 'acervo') {
+                titleEl.textContent = "Sobre o Acervo Digital";
+                contentEl.innerHTML = `
+                    <p>Nosso acervo digital é composto por mais de 12.000 registros, divididos entre cultura material (física) e algoritmos de probabilidade (digital).</p>
+                    <p>A digitalização permite que pesquisadores de todo o mundo acessem dados que antes estavam restritos a arquivos físicos ou códigos-fonte proprietários.</p>
+                `;
+            } else if (p === 'termos') {
+                titleEl.textContent = "Termos de Uso Acadêmico";
+                contentEl.innerHTML = `
+                    <p>Ao acessar os dados do Tesauro Museus, você concorda em utilizá-los estritamente para fins de pesquisa e análise histórica.</p>
+                    <p>O acesso à área de simulação de probabilidade é restrito a maiores de 18 anos e deve ser feito com responsabilidade.</p>
+                `;
+            } else {
+                // Default
+                titleEl.textContent = "Documentação Institucional";
+                contentEl.innerHTML = "<p>Selecione uma seção no menu para visualizar o conteúdo.</p>";
+            }
+        });
+    </script>
+
+</body>
+
+</html>

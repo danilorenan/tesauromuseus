@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categoria | Tesauro Museus</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        museum: {
+                            cream: '#F4F1EA',
+                            navy: '#1A2A40',
+                            wine: '#8B0000',
+                            gold: '#C5A059',
+                            gray: '#4A4A4A'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-museum-cream text-museum-navy font-sans antialiased">
+
+    <!-- Header -->
+    <header class="border-b border-museum-navy/10 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="museum_icon.png" alt="Logo" class="w-10 h-10 object-contain opacity-90">
+                <h1 class="font-serif text-2xl font-bold tracking-tight text-museum-navy">Tesauro Museus</h1>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-museum-gray">
+                <a href="internal.html?p=instituicoes" class="hover:text-museum-wine transition-colors">Instituições</a>
+                <a href="internal.html?p=metodologia" class="hover:text-museum-wine transition-colors">Metodologia</a>
+                <a href="internal.html?p=acervo" class="hover:text-museum-wine transition-colors">Acervo Digital</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
+
+        <!-- Main Content -->
+        <div class="lg:w-3/4">
+            <div class="mb-8 border-b border-museum-navy/10 pb-6">
+                <span class="text-xs font-bold text-museum-wine uppercase tracking-wider">Categoria do Acervo</span>
+                <h1 id="cat-title" class="font-serif text-4xl md:text-5xl font-bold text-museum-navy mt-2 capitalize">
+                    Carregando...</h1>
+                <p class="text-gray-500 mt-2">Explorando registros catalogados nesta coleção.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="items-grid">
+                <!-- Items injected via JS -->
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="lg:w-1/4">
+            <div class="bg-museum-navy text-white p-6 rounded-sm shadow-lg sticky top-24">
+                <h3 class="font-serif font-bold text-xl mb-4 text-museum-gold">Correlação Estatística</h3>
+                <p class="text-sm text-museum-cream/80 mb-6 leading-relaxed">
+                    Esta categoria possui forte correlação com nossos modelos de probabilidade histórica.
+                </p>
+                <div class="border-t border-white/10 pt-4">
+                    <p class="text-xs text-gray-400 mb-2">Acesso a dados brutos:</p>
+                    <a href="https://example.com/main-affiliate-offer" target="_blank"
+                        class="block w-full bg-museum-wine text-center py-3 rounded-sm font-bold hover:bg-red-900 transition-colors">
+                        Verificar Simulador
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+    </main>
+
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const type = params.get('type');
+            const titleEl = document.getElementById('cat-title');
+            const gridEl = document.getElementById('items-grid');
+
+            let title = "Acervo Geral";
+            let items = [];
+
+            if (type === 'ceramica') {
+                title = "Acervo de Cerâmica Antiga";
+                items = ["Vaso Protocoríntio", "Ânfora de Transporte", "Cratera de Volutas", "Kylix Ático", "Lécito de Fundo Branco", "Hidra de Bronze"];
+            } else if (type === 'numismatica') {
+                title = "Coleção Numismática";
+                items = ["Dracma de Prata", "Sestércio Romano", "Denário de Augusto", "Tetradracma Ateniense", "Soldo Bizantino", "Real Espanhol"];
+            } else if (type === 'mobiliario') {
+                title = "Mobiliário Histórico";
+                items = ["Cadeira Luís XV", "Escrivaninha Vitoriana", "Baú Colonial", "Mesa de Jogo Século XVIII", "Armário Rústico", "Trono Eclesiástico"];
+            } else if (type === 'pintura') {
+                title = "Galeria de Pintura";
+                items = ["Retrato de Nobre", "Paisagem Holandesa", "Natureza Morta", "Cena de Batalha", "Afresco Renascentista", "Miniatura em Marfim"];
+            } else if (type === 'sistemas-recompensa') {
+                title = "Sistemas de Recompensa";
+                items = ["Roda da Fortuna 1890", "Slot Machine Liberty Bell", "Mecanismo de Relojoaria", "Algoritmo PRNG v1.0", "Tabela de Pagamentos 1920", "Chip de Processamento RNG"];
+            }
+
+            titleEl.textContent = title;
+            document.title = `${title} | Tesauro Museus`;
+
+            // Generate placeholders
+            gridEl.innerHTML = items.map((item, index) => `
+                <div class="bg-white p-4 rounded-sm shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="h-40 bg-gray-200 mb-4 rounded-sm overflow-hidden relative">
+                         <div class="absolute inset-0 flex items-center justify-center text-gray-400 text-xs">Imagem não disponível</div>
+                    </div>
+                    <h3 class="font-serif font-bold text-lg text-museum-navy">${item}</h3>
+                    <p class="text-xs text-gray-500">Catálogo #${1000 + index}</p>
+                </div>
+            `).join('');
+        });
+    </script>
+
+</body>
+
+</html>

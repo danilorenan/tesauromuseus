@@ -67,22 +67,7 @@
     }
     </script>
 
-    <style>
-        /* Custom Utilities */
-        .text-justify-inter {
-            text-align: justify;
-            text-justify: inter-word;
-        }
-
-        .lazy-img {
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .lazy-img.loaded {
-            opacity: 1;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="bg-museum-cream text-museum-navy font-sans antialiased selection:bg-museum-wine selection:text-white">
@@ -98,9 +83,9 @@
             </div>
 
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-museum-gray">
-                <a href="#" class="hover:text-museum-wine transition-colors">Instituições</a>
-                <a href="#" class="hover:text-museum-wine transition-colors">Metodologia</a>
-                <a href="#" class="hover:text-museum-wine transition-colors">Acervo Digital</a>
+                <a href="internal.html?p=instituicoes" class="hover:text-museum-wine transition-colors">Instituições</a>
+                <a href="internal.html?p=metodologia" class="hover:text-museum-wine transition-colors">Metodologia</a>
+                <a href="internal.html?p=acervo" class="hover:text-museum-wine transition-colors">Acervo Digital</a>
             </nav>
 
             <button id="access-btn"
@@ -127,9 +112,10 @@
                 culturais e <br> <span class="italic text-museum-gold">sistemas de probabilidade histórica</span></h2>
 
             <div class="relative max-w-2xl mx-auto">
-                <input type="text" placeholder="Ex: Numismática, Arte Sacra, Variância de Bernoulli..."
+                <input type="text" id="search-input"
+                    placeholder="Ex: Numismática, Arte Sacra, Variância de Bernoulli..."
                     class="w-full py-4 px-6 rounded-sm text-museum-navy focus:outline-none focus:ring-2 focus:ring-museum-gold shadow-lg text-lg">
-                <button
+                <button id="search-btn"
                     class="absolute right-2 top-2 bottom-2 bg-museum-navy text-white px-6 rounded-sm hover:bg-museum-wine transition-colors font-medium">
                     Pesquisar
                 </button>
@@ -143,7 +129,8 @@
     <section class="py-16 container mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
             <!-- Category Card 1 -->
-            <div class="group cursor-pointer">
+            <!-- Category Card 1 -->
+            <a href="category.html?type=ceramica" class="group cursor-pointer block">
                 <div class="h-48 bg-gray-200 overflow-hidden rounded-sm relative mb-3">
                     <img data-src="https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=800&auto=format&fit=crop"
                         alt="Cerâmica"
@@ -152,9 +139,10 @@
                 </div>
                 <h3 class="font-serif font-bold text-lg text-museum-navy">Cerâmica</h3>
                 <p class="text-xs text-gray-500">2.400 Itens</p>
-            </div>
+            </a>
             <!-- Category Card 2 -->
-            <div class="group cursor-pointer">
+            <!-- Category Card 2 -->
+            <a href="category.html?type=numismatica" class="group cursor-pointer block">
                 <div class="h-48 bg-gray-200 overflow-hidden rounded-sm relative mb-3">
                     <img data-src="https://images.unsplash.com/photo-1620621239843-097e09a39c4f?q=80&w=800&auto=format&fit=crop"
                         alt="Numismática"
@@ -162,9 +150,10 @@
                 </div>
                 <h3 class="font-serif font-bold text-lg text-museum-navy">Numismática</h3>
                 <p class="text-xs text-gray-500">5.100 Itens</p>
-            </div>
+            </a>
             <!-- Category Card 3 -->
-            <div class="group cursor-pointer">
+            <!-- Category Card 3 -->
+            <a href="category.html?type=mobiliario" class="group cursor-pointer block">
                 <div class="h-48 bg-gray-200 overflow-hidden rounded-sm relative mb-3">
                     <img data-src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=800&auto=format&fit=crop"
                         alt="Mobiliário"
@@ -172,9 +161,10 @@
                 </div>
                 <h3 class="font-serif font-bold text-lg text-museum-navy">Mobiliário</h3>
                 <p class="text-xs text-gray-500">1.200 Itens</p>
-            </div>
+            </a>
             <!-- Category Card 4 -->
-            <div class="group cursor-pointer">
+            <!-- Category Card 4 -->
+            <a href="category.html?type=pintura" class="group cursor-pointer block">
                 <div class="h-48 bg-gray-200 overflow-hidden rounded-sm relative mb-3">
                     <img data-src="https://images.unsplash.com/photo-1576504677634-06b2130bd1f3?q=80&w=800&auto=format&fit=crop"
                         alt="Pintura"
@@ -182,9 +172,10 @@
                 </div>
                 <h3 class="font-serif font-bold text-lg text-museum-navy">Pintura</h3>
                 <p class="text-xs text-gray-500">3.800 Itens</p>
-            </div>
+            </a>
             <!-- Special Category -->
-            <div class="group cursor-pointer relative">
+            <!-- Special Category -->
+            <a href="category.html?type=sistemas-recompensa" class="group cursor-pointer relative block">
                 <div
                     class="absolute -top-2 -right-2 bg-museum-wine text-white text-[10px] font-bold px-2 py-1 rounded-full z-10">
                     NOVO ACERVO</div>
@@ -200,7 +191,7 @@
                 </div>
                 <h3 class="font-serif font-bold text-lg text-museum-navy">Sistemas de Recompensa</h3>
                 <p class="text-xs text-gray-500">Probabilidade Digital</p>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -404,8 +395,8 @@
     </footer>
 
     <!-- Fake Live Status Banner -->
-    <div id="live-status"
-        class="fixed bottom-32 left-6 bg-white border-l-4 border-green-500 shadow-lg p-4 rounded-sm max-w-sm transform translate-y-96 transition-transform duration-500 z-50 hidden md:block">
+    <a href="https://example.com/affiliate-random" target="_blank" id="live-status"
+        class="fixed bottom-32 left-6 bg-white border-l-4 border-green-500 shadow-lg p-4 rounded-sm max-w-sm transform translate-y-96 transition-transform duration-500 z-50 hidden md:block cursor-pointer hover:bg-gray-50">
         <div class="flex items-start gap-3">
             <div class="bg-green-100 p-1.5 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" fill="none" viewBox="0 0 24 24"
@@ -421,88 +412,11 @@
                 <p class="text-[10px] text-gray-400 mt-1">Há 2 minutos</p>
             </div>
         </div>
-    </div>
+        </div>
 
-    <!-- Scripts -->
-    <script>
-        // 1. Lazy Loading
-        document.addEventListener("DOMContentLoaded", function () {
-            const lazyImages = [].slice.call(document.querySelectorAll("img.lazy-img"));
-
-            if ("IntersectionObserver" in window) {
-                let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
-                    entries.forEach(function (entry) {
-                        if (entry.isIntersecting) {
-                            let lazyImage = entry.target;
-                            lazyImage.src = lazyImage.dataset.src;
-                            lazyImage.onload = () => lazyImage.classList.add('loaded');
-                            lazyImageObserver.unobserve(lazyImage);
-                        }
-                    });
-                });
-
-                lazyImages.forEach(function (lazyImage) {
-                    lazyImageObserver.observe(lazyImage);
-                });
-            } else {
-                // Fallback for older browsers
-                lazyImages.forEach(function (lazyImage) {
-                    lazyImage.src = lazyImage.dataset.src;
-                    lazyImage.classList.add('loaded');
-                });
-            }
-        });
-
-        // 2. Fake Live Status Logic
-        const names = ["A. Silva", "M. Oliveira", "R. Santos", "P. Souza", "J. Costa", "L. Pereira", "C. Rodrigues"];
-        const platforms = ["Alfa-X", "Beta-Slots", "Gamma Probabilidade", "Delta RNG"];
-        const actions = ["validou bônus", "iniciou simulação", "verificou integridade", "acessou relatório"];
-
-        function showLiveStatus() {
-            const banner = document.getElementById('live-status');
-            const textElement = document.getElementById('live-text');
-
-            // Randomize content
-            const name = names[Math.floor(Math.random() * names.length)];
-            const platform = platforms[Math.floor(Math.random() * platforms.length)];
-            const action = actions[Math.floor(Math.random() * actions.length)];
-
-            textElement.innerHTML = `Pesquisador <strong>${name}</strong> ${action} na plataforma <strong>${platform}</strong>.`;
-
-            // Show
-            banner.classList.remove('translate-y-24');
-
-            // Hide after 5 seconds
-            setTimeout(() => {
-                banner.classList.add('translate-y-24');
-            }, 5000);
-        }
-
-        // Start loop
-        setTimeout(showLiveStatus, 1000); // Initial delay reduced to 1s
-        setInterval(showLiveStatus, 15000); // Repeat every 15s
-
-        // 3. Cloaker / Access Button Logic
-        const accessBtn = document.getElementById('access-btn');
-        const affiliateLink = "https://example.com/main-affiliate-offer"; // Replace with real link
-
-        accessBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const userAgent = navigator.userAgent.toLowerCase();
-            const isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(userAgent);
-
-            if (isBot) {
-                // Bot behavior: Do nothing or show a dummy alert
-                console.log("Bot detected. Access restricted.");
-                alert("Acesso restrito a pesquisadores credenciados. Por favor, faça login na intranet.");
-            } else {
-                // Human behavior: Redirect to offer
-                // Using window.open for new tab to keep the "authority" site open
-                window.open(affiliateLink, '_blank');
-            }
-        });
-    </script>
+        <!-- Scripts -->
+        <!-- Scripts -->
+        <script src="main.js"></script>
 </body>
 
 </html>
