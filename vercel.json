@@ -152,11 +152,6 @@
       "permanent": true
     },
     {
-      "source": "/sitemap.xml/:path*",
-      "destination": "/a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital",
-      "permanent": true
-    },
-    {
       "source": "/index.php/:path*",
       "destination": "/",
       "permanent": true
