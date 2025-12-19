@@ -63,9 +63,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // --- 3. Partner Gateway Logic ---
     const PARTNER_GATEWAY = "https://jonbet.bet.br/r/XKPw1Z";
 
-    window.handleSimulationAccess = function (event, source) {
+    window.handleSimulationAccess = function (event, element) {
         event.preventDefault();
-        const target = event.currentTarget;
+        const target = element || event.currentTarget;
 
         // Bot Detection
         const userAgent = navigator.userAgent.toLowerCase();
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener('click', function (e) {
         const partnerLink = e.target.closest('[data-partner-link]');
         if (partnerLink) {
-            handleSimulationAccess(e, 'global');
+            handleSimulationAccess(e, partnerLink);
         }
     });
 
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const accessBtn = document.getElementById('access-btn');
     if (accessBtn) {
         accessBtn.addEventListener('click', function (e) {
-            handleSimulationAccess(e, 'header_btn');
+            handleSimulationAccess(e, accessBtn);
         });
     }
 
