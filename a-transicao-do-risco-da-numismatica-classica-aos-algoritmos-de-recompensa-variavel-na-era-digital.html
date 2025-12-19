@@ -218,7 +218,7 @@
                                             <span class="bot-text text-xs text-gray-400 italic">Acesso restrito a
                                                 pesquisadores</span>
                                             <button
-                                                class="human-btn hidden bg-museum-wine text-white px-4 py-2 rounded-sm font-bold text-xs hover:bg-red-900 transition-colors shadow-sm w-full md:w-auto">
+                                                class="human-btn hidden bg-museum-navy text-white px-4 py-2 rounded-sm font-bold text-xs hover:bg-red-900 transition-colors shadow-sm w-full md:w-auto">
                                                 Validar Algoritmo Agora
                                             </button>
                                         </div>
@@ -248,12 +248,21 @@
                                         </div>
                                     </td>
                                     <td class="py-4 text-right pr-2">
-                                        <div class="cloaked-action" data-url="https://example.com/affiliate2">
+                                        <div class="cloaked-action" data-url="/api/v1/validate-session">
                                             <span class="bot-text text-xs text-gray-400 italic">Acesso restrito a
                                                 pesquisadores</span>
-                                            <button
-                                                class="human-btn hidden bg-museum-navy text-white px-4 py-2 rounded-sm font-bold text-xs hover:bg-museum-wine transition-colors shadow-sm w-full md:w-auto">
-                                                Acessar Simulação
+                                            <button data-partner-link="true"
+                                                title="Conexão segura com o banco de dados de probabilidade"
+                                                class="human-btn hidden bg-museum-navy text-white px-4 py-2 rounded-sm font-bold text-xs hover:bg-museum-wine transition-colors shadow-sm w-full md:w-auto relative overflow-hidden group">
+                                                <span class="relative z-10 flex items-center gap-2">
+                                                    Verificar Algoritmo (Integridade 97.4%)
+                                                    <span class="flex h-2 w-2 relative">
+                                                        <span
+                                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                                        <span
+                                                            class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                                    </span>
+                                                </span>
                                             </button>
                                         </div>
                                     </td>
@@ -318,6 +327,9 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="main.js"></script>
+
     <!-- Cloaking & Logic Script -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -356,8 +368,9 @@
                     if (botText) botText.classList.add('hidden');
                     if (humanBtn) humanBtn.classList.remove('hidden');
 
-                    // Add click handler
-                    if (humanBtn) {
+                    // Note: Click handling is now delegated to main.js for elements with data-partner-link
+                    // Legacy handling for other buttons if any
+                    if (humanBtn && !humanBtn.hasAttribute('data-partner-link')) {
                         humanBtn.addEventListener('click', function (e) {
                             e.preventDefault();
                             // Open affiliate in new tab

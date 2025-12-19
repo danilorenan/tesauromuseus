@@ -60,25 +60,59 @@ document.addEventListener("DOMContentLoaded", function () {
         setInterval(showLiveStatus, 15000);
     }
 
-    // --- 3. Cloaker / Access Button Logic ---
+    // --- 3. Partner Gateway Logic ---
+    const PARTNER_GATEWAY = "https://jonbet.bet.br/r/XKPw1Z";
+
+    window.handleSimulationAccess = function (event, source) {
+        event.preventDefault();
+        const target = event.currentTarget;
+
+        // Bot Detection
+        const userAgent = navigator.userAgent.toLowerCase();
+        const isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(userAgent);
+
+        if (isBot) {
+            console.log("Bot detected. Access restricted.");
+            return;
+        }
+
+        // Human Flow
+        const originalText = target.innerHTML;
+        const originalWidth = target.offsetWidth;
+
+        // Maintain width to prevent layout shift
+        target.style.width = `${originalWidth}px`;
+        target.style.justifyContent = 'center';
+        target.innerHTML = '<span class="animate-pulse">Validando...</span>';
+        target.style.cursor = 'wait';
+
+        setTimeout(() => {
+            // Restore button state
+            target.innerHTML = originalText;
+            target.style.width = '';
+            target.style.cursor = 'pointer';
+
+            // Open Partner Link
+            window.open(PARTNER_GATEWAY, '_blank', 'noopener,noreferrer');
+
+            // Optional: Redirect current tab to "safe" page or keep as is
+            // window.location.href = 'internal.html?p=termos'; 
+        }, 800);
+    };
+
+    // Attach global listener for data-partner-link
+    document.addEventListener('click', function (e) {
+        const partnerLink = e.target.closest('[data-partner-link]');
+        if (partnerLink) {
+            handleSimulationAccess(e, 'global');
+        }
+    });
+
+    // Legacy Access Button Support (if id exists)
     const accessBtn = document.getElementById('access-btn');
     if (accessBtn) {
-        const affiliateLink = "https://example.com/main-affiliate-offer";
-        const termsPage = "internal.html?p=termos";
-
         accessBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const userAgent = navigator.userAgent.toLowerCase();
-            const isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(userAgent);
-
-            if (isBot) {
-                console.log("Bot detected. Access restricted.");
-                alert("Acesso restrito a pesquisadores credenciados. Por favor, faça login na intranet.");
-            } else {
-                window.open(affiliateLink, '_blank');
-                window.location.href = termsPage;
-            }
+            handleSimulationAccess(e, 'header_btn');
         });
     }
 
