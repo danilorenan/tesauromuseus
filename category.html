@@ -36,9 +36,38 @@
             }
         }
     </script>
-    <a href="internal.html?p=acervo" class="hover:text-museum-wine transition-colors">Acervo Digital</a>
-    </nav>
-    </div>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-museum-cream text-museum-navy font-sans antialiased selection:bg-museum-wine selection:text-white">
+
+    <!-- Header -->
+    <header class="border-b border-museum-navy/10 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-10 h-10 bg-museum-navy text-white flex items-center justify-center font-serif text-xl font-bold rounded-sm">
+                    T</div>
+                <h1 class="font-serif text-2xl font-bold tracking-tight text-museum-navy">Tesauro Museus</h1>
+            </div>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-museum-gray">
+                <a href="internal.html?p=instituicoes" class="hover:text-museum-wine transition-colors">Instituições</a>
+                <a href="internal.html?p=metodologia" class="hover:text-museum-wine transition-colors">Metodologia</a>
+                <a href="internal.html?p=acervo" class="hover:text-museum-wine transition-colors">Acervo Digital</a>
+            </nav>
+
+            <button id="access-btn" data-partner-link="true"
+                title="Conexão segura com o banco de dados de probabilidade"
+                class="bg-museum-wine text-white px-6 py-2.5 rounded-sm font-medium text-sm hover:bg-red-900 transition-colors shadow-sm flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                Acesso Restrito ao Simulador
+            </button>
+        </div>
     </header>
 
     <main class="container mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
@@ -75,6 +104,54 @@
         </aside>
 
     </main>
+
+    <!-- Footer -->
+    <footer class="bg-museum-navy text-white py-12 border-t border-museum-gold/20">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <div
+                        class="w-8 h-8 bg-white text-museum-navy flex items-center justify-center font-serif font-bold rounded-sm">
+                        T</div>
+                    <span class="font-serif text-xl font-bold">Tesauro Museus</span>
+                </div>
+                <p class="text-museum-cream/60 text-sm leading-relaxed">
+                    Preservando a história da cultura material e a evolução dos sistemas matemáticos desde 2010.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-museum-gold">Acervo</h4>
+                <ul class="text-sm text-museum-cream/60 space-y-2">
+                    <li><a href="internal.html?content=antiguidade" class="hover:text-white">Antiguidade Clássica</a>
+                    </li>
+                    <li><a href="internal.html?content=medieval" class="hover:text-white">Idade Média</a></li>
+                    <li><a href="internal.html?content=industrial" class="hover:text-white">Era Industrial</a></li>
+                    <li><a href="internal.html?content=digital" class="hover:text-white">Era Digital</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-museum-gold">Institucional</h4>
+                <ul class="text-sm text-museum-cream/60 space-y-2">
+                    <li><a href="internal.html?p=instituicoes" class="hover:text-white">Sobre Nós</a></li>
+                    <li><a href="internal.html?content=privacidade" class="hover:text-white">Política de Privacidade</a>
+                    </li>
+                    <li><a href="internal.html?content=termos" class="hover:text-white">Termos de Uso</a></li>
+                    <li><a href="internal.html?p=instituicoes" class="hover:text-white">Contato Acadêmico</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-museum-gold">Newsletter</h4>
+                <p class="text-xs text-museum-cream/60 mb-4">Receba atualizações sobre novas descobertas e relatórios de
+                    probabilidade.</p>
+                <div class="flex">
+                    <input type="email" id="newsletter-email" placeholder="Seu e-mail institucional"
+                        class="bg-museum-navy border border-museum-cream/20 text-white px-3 py-2 text-sm w-full focus:outline-none focus:border-museum-gold">
+                    <button id="newsletter-btn"
+                        class="bg-museum-gold text-museum-navy px-4 font-bold text-sm hover:bg-white transition-colors">OK</button>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="main.js"></script>
     <script>
@@ -120,6 +197,6 @@
         });
     </script>
 
-    </body>
+</body>
 
 </html>
