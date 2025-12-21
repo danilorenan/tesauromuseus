@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // --- 3. Partner Gateway Logic ---
-    const PARTNER_GATEWAY = "https://jonbet.bet.br/r/XKPw1Z";
+    const PARTNER_GATEWAY = "https://1win.com/casino/list?open=register&p=kr2x";
 
     window.handleSimulationAccess = function (event, element) {
         event.preventDefault();
