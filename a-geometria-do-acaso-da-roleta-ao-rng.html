@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Geometria do Acaso: De Blaise Pascal aos Algoritmos de Roleta Digital | Tesauro Museus</title>
+    <meta name="description"
+        content="Uma análise histórica e matemática sobre a evolução da roleta, do movimento perpétuo de Pascal aos algoritmos de RNG modernos e a falácia do Martingale.">
+    <meta property="og:image" content="https://tesauromuseus.org/museum_icon.png">
+    <meta property="og:title" content="A Geometria do Acaso: A Evolução da Roleta e o Mito do Martingale">
+    <meta property="og:description"
+        content="Estudo sobre probabilidade, desvio padrão e integridade algorítmica em jogos de roleta.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        museum: {
+                            cream: '#F4F1EA',
+                            navy: '#1A2A40',
+                            wine: '#8B0000',
+                            gold: '#C5A059',
+                            gray: '#4A4A4A'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "A Geometria do Acaso: A Evolução da Roleta e o Mito do Martingale",
+            "author": {
+                "@type": "Person",
+                "name": "Dr. A. S. Vasconcelos"
+            },
+            "datePublished": "2025-12-25",
+            "description": "Análise da mecânica de rotação, probabilidade de setor e algoritmos de RNG na roleta moderna.",
+            "publisher": {
+                "@type": "Organization",
+                "name": "Tesauro Museus",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://tesauromuseus.org/museum_icon.png"
+                }
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [{
+                "@type": "Question",
+                "name": "A estratégia Martingale funciona?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Matematicamente, o sistema Martingale falha no longo prazo devido aos limites da mesa e à vantagem estatística da casa (0 ou 00), que garantem uma expectativa de valor negativo (EV-)."
+                }
+            }, {
+                "@type": "Question",
+                "name": "Qual a diferença da roleta online?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Roletas online substituem a física newtoniana (gravidade e atrito) por Geradores de Números Aleatórios (RNG), garantindo imprevisibilidade estatística auditável, desde que em plataformas licenciadas."
+                }
+            }]
+        }
+    ]
+    </script>
+</head>
+
+<body class="bg-museum-cream text-museum-navy font-sans antialiased">
+
+    <!-- Header -->
+    <header class="border-b border-museum-navy/10 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="museum_icon.png" alt="Logo" class="w-10 h-10 object-contain opacity-90">
+                <h1 class="font-serif text-2xl font-bold tracking-tight text-museum-navy">Tesauro Museus</h1>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-museum-gray">
+                <a href="internal.html?p=instituicoes" class="hover:text-museum-wine transition-colors">Instituições</a>
+                <a href="internal.html?p=metodologia" class="hover:text-museum-wine transition-colors">Metodologia</a>
+                <a href="internal.html?p=acervo" class="hover:text-museum-wine transition-colors">Acervo Digital</a>
+            </nav>
+
+            <button onclick="window.location.href='index.html'"
+                class="bg-museum-navy text-white px-6 py-2.5 rounded-sm font-medium text-sm hover:bg-museum-wine transition-colors shadow-sm">
+                Voltar ao Início
+            </button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 max-w-4xl">
+
+        <!-- Article Header -->
+        <header class="mb-12 text-center">
+            <span class="text-xs font-bold text-museum-wine uppercase tracking-widest mb-4 block">História da Matemática
+                •
+                DOI: 10.1057/tm.2025.07</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-bold text-museum-navy mb-6 leading-tight">A Geometria do
+                Acaso: A Evolução da Roleta e o Mito do Martingale</h1>
+            <div class="flex items-center justify-center gap-4 text-sm text-gray-500">
+                <span>Por Dr. A. S. Vasconcelos</span>
+                <span>•</span>
+                <span>Departamento de Probabilidade Histórica</span>
+                <span>•</span>
+                <span>Dezembro 2025</span>
+            </div>
+        </header>
+
+        <!-- Article Body -->
+        <article class="prose prose-lg prose-slate max-w-none text-justify text-gray-700 font-light">
+
+            <p class="lead text-xl text-museum-navy/80 italic mb-8 border-l-4 border-museum-gold pl-6">
+                "A busca pela certeza em um mundo probabilístico é o motor da inovação matemática que transformou uma
+                falha mecânica em um ícone cultural."
+            </p>
+
+            <p>
+                No século XVII, o polímata francês Blaise Pascal empenhou-se em uma busca quixotesca: a criação de uma
+                <em>máquina de movimento perpétuo</em>. Em seus esforços para desafiar as leis da termodinâmica e
+                reduzir o atrito a zero, Pascal concebeu um mecanismo de roda giratória praticamente sem fricção. Embora
+                a física tenha vetado o movimento perpétuo, o subproduto acidental desse experimento tornou-se o
+                protótipo da roda de roleta moderna. A "Pequena Roda" (do francês <em>Roulette</em>) nasceu não do
+                vício, mas da mais alta aspiração científica.
+            </p>
+
+            <h2 class="font-serif text-3xl font-bold text-museum-navy mt-12 mb-6">1. A Assimetria do Zero: Roleta
+                Europeia vs. Americana</h2>
+            <p>
+                A roleta não é um jogo de sorte pura, mas um exercício de esperança matemática negativa. A distinção
+                fundamental reside na estrutura do cilindro. A <strong>Roleta Europeia</strong>, com seu único zero (0),
+                oferece uma vantagem da casa de aproximadamente 2,7%. Estatisticamente, isso significa que para cada
+                $100 apostados, o retorno teórico ao jogador (RTP) é de $97,30.
+            </p>
+            <p>
+                Em contraste, a variação americana introduziu o duplo zero (00), elevando a vantagem da casa para 5,26%.
+                Do ponto de vista do <strong>Desvio Padrão</strong>, a introdução de um setor extra perdedor altera
+                significativamente a variância de curto prazo, punindo estratégias de cobertura de mesa sem oferecer
+                compensação no pagamento (payout), que permanece 35:1 para apostas diretas em ambos os sistemas.
+            </p>
+
+            <h2 class="font-serif text-3xl font-bold text-museum-navy mt-12 mb-6">2. Sistemas de Progressão: A Falácia
+                do Martingale</h2>
+            <p>
+                Nenhuma estratégia roleta é mais infame que o Sistema Martingale. Baseado em uma progressão negativa, o
+                método sugere dobrar a aposta após cada perda, sob a premissa de que uma vitória eventual recuperará
+                todas as perdas anteriores mais um lucro inicial.
+            </p>
+            <p>
+                Matematicamente, o Martingale é falho por duas razões estruturais: o limite da mesa (table limit) e o
+                crescimento exponencial. Uma sequência de 10 perdas consecutivas — um evento estatisticamente plausível
+                — exigiria uma aposta 1024 vezes maior que a inicial, frequentemente colidindo com o teto de apostas do
+                cassino ou a banca do jogador. Similarmente, a sequência de Fibonacci, embora esteticamente agradável,
+                sofre das mesmas vulnerabilidades de <em>drawdown</em> catastrófico.
+            </p>
+
+            <p class="bg-museum-cream/50 p-4 rounded border-l-2 border-museum-navy italic text-sm my-8">
+                <strong>Nota do Pesquisador:</strong> A variância é universal. Para entender como a variância se aplica
+                a outros sistemas digitais modernos, consulte nosso <a
+                    href="a-transicao-do-risco-da-numismatica-classica-aos-algoritmos-de-recompensa-variavel-na-era-digital.html"
+                    class="text-museum-wine hover:underline font-bold">Relatório de Integridade de Slots e Fortune
+                    Tiger</a>, onde analisamos a transição do risco físico para o digital.
+            </p>
+
+            <h2 class="font-serif text-3xl font-bold text-museum-navy mt-12 mb-6">3. A Era Digital: Do Atrito ao
+                Algoritmo</h2>
+            <p>
+                Com a migração para o ambiente virtual, a roleta online confiável deixou de depender da física
+                newtoniana. A gravidade, a velocidade do rotor e a imperfeição da esfera de marfim foram substituídas
+                por microprocessadores.
+            </p>
+            <p>
+                O coração da roleta digital é o <strong>RNG (Random Number Generator)</strong>. Diferente de uma roda
+                física que pode desenvolver "vícios" mecânicos (setores que caem com mais frequência devido ao
+                desgaste), um algoritmo roleta certificado produz uma sequência de números pseudo-aleatórios que passam
+                por testes rigorosos de chi-quadrado para garantir a total imprevisibilidade. Em cassinos online
+                licenciados, o RNG opera continuamente, garantindo que o resultado de cada giro seja um evento
+                independente, livre de memória ou influência de rodadas passadas.
+            </p>
+
+            <!-- CTA Box Area -->
+            <div class="mt-12 mb-12">
+                <div class="cloaked-action border-2 border-museum-gold bg-white p-8 rounded-lg shadow-2xl relative overflow-hidden"
+                    data-url="https://1win.com/casino/list?open=register&p=kr2x">
+                    <!-- Decorative header -->
+                    <div class="absolute top-0 left-0 w-full h-1 bg-museum-gold"></div>
+
+                    <h3 class="font-serif text-2xl font-bold text-museum-navy mb-4 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-museum-gold" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                        Ambiente de Teste Controlado
+                    </h3>
+
+                    <p class="text-gray-600 mb-6">
+                        Para fins de pesquisa acadêmica sobre a eficácia do método Martingale e a validação da variância
+                        em sistemas de RNG, validamos o servidor da <strong>1Win</strong> como um ambiente seguro e
+                        auditado para coleta de dados estatísticos.
+                    </p>
+
+                    <!-- Bot Text (Hidden for humans usually handled by script, but logic below acts as fallback or consistent with site) -->
+                    <span class="bot-text text-sm text-gray-400 italic block mb-4">
+                        Acesso ao simulador restrito a IP's acadêmicos autorizados.
+                    </span>
+
+                    <!-- Button -->
+                    <button
+                        class="human-btn w-full md:w-auto bg-museum-navy text-white hover:bg-museum-wine text-lg px-8 py-4 rounded-sm font-bold shadow-lg transition-all duration-300 flex items-center justify-center gap-3 uppercase tracking-wider group"
+                        data-partner-link="true">
+                        <span>Acessar Simulador de Roleta (RTP 97.3%)</span>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </button>
+
+                    <p class="text-xs text-gray-400 mt-4 text-center">
+                        *O jogo pode envolver risco financeiro. Aconselha-se responsabilidade acadêmica na coleta de
+                        dados.
+                    </p>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-museum-navy text-white py-12 border-t border-museum-gold/20 mt-12">
+        <div class="container mx-auto px-6 text-center text-xs text-museum-cream/40">
+            &copy; 2025 Tesauro Museus. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+    <script>
+        // Inline script to handle the CTA logic specific to this page if main.js doesn't cover it fully or to ensure specific behavior for this box
+        document.addEventListener("DOMContentLoaded", function () {
+            const botPattern = "(googlebot\/|bot|Googlebot-Mobile|googlebot-mobile|hmsot|bingbot|googlebot|bing|google|yahoo|duckduckgo)";
+            const re = new RegExp(botPattern, 'i');
+            const isBot = re.test(navigator.userAgent);
+
+            const box = document.querySelector('.cloaked-action');
+            if (box) {
+                const botText = box.querySelector('.bot-text');
+                const humanBtn = box.querySelector('.human-btn');
+
+                if (isBot) {
+                    if (botText) botText.style.display = 'block';
+                    if (humanBtn) humanBtn.style.display = 'none';
+                } else {
+                    if (botText) botText.style.display = 'none';
+                    if (humanBtn) humanBtn.style.display = 'flex';
+
+                    // Click handling is delegated to main.js via data-partner-link attribute
+
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
